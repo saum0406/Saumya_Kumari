@@ -76,23 +76,27 @@
     }
 
     .info-bar {
-       width: 100%;
-       background-color: #F5F5F5;
-       padding: 10px 50px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-    }
+  width: 100%;
+  background-color: #F5F5F5;
+  padding: 10px 0; /* only vertical padding */
+}
 
-     .info-bar p {
-       margin: 0;
-       font-family: 'Jost', sans-serif;
-        font-size: 16px;
-       font-weight: 400;
-       line-height: 1.4;
-       color: #000;
-       text-align: center;
-     }
+.info-bar .container {
+  max-width: 1440px;   /* match your hero max-width */
+  margin: 0 auto;      /* center horizontally */
+  padding: 0 50px;     /* left/right padding inside */
+  text-align: center;
+}
+
+.info-bar p {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #000;
+}
+
 
   </style>
 </head>
@@ -112,8 +116,11 @@
   </section>
        
    <section class="info-bar">
-      <p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>
-   </section>
+  <div class="container">
+    <p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>
+  </div>
+</section>
+
 
 </body>
 </html>
