@@ -1,118 +1,79 @@
-{% schema %}
-{
-  "name": "Gift Guide Hero",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "The Gift Guide"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Shop Now"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link",
-      "default": "/collections/all"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gift Guide</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Jost', sans-serif;
+      background: #fff;
     }
-  ],
-  "presets": [
-    {
-      "name": "Gift Guide Hero"
-    }
-  ]
-}
-{% endschema %}
 
-<section class="gift-guide-hero" 
-  {% if section.settings.background_image %} 
-    style="background-image: url('{{ section.settings.background_image | img_url: 'master' }}');" 
-  {% endif %}>
-  
-  <div class="gift-guide-hero__overlay">
-    <div class="gift-guide-hero__content container">
-      <h2 class="gift-guide-hero__title">{{ section.settings.heading }}</h2>
-      <p class="gift-guide-hero__subtitle">{{ section.settings.subheading }}</p>
-      {% if section.settings.button_text != blank %}
-        <a href="{{ section.settings.button_link }}" class="gift-guide-hero__btn">
-          {{ section.settings.button_text }}
-        </a>
-      {% endif %}
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 1440px;
+      height: 780px;
+      margin: 0 auto;
+      background: url('background-image.png') no-repeat center center/cover;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 489px;
+      left: 67px;
+      color: #000;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      font-weight: 500;
+      margin: 0;
+      line-height: 100%;
+    }
+
+    .hero p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 140%;
+      margin-top: 20px;
+      max-width: 483px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      background: #000;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 20px;
+      padding: 15px 40px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>The Gift Guide</h1>
+      <p>
+        Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.
+      </p>
+      <a href="#" class="btn">Shop Now</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-.gift-guide-hero {
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 700px; /* adjust to match figma height */
-  display: flex;
-  align-items: center;
-}
-
-.gift-guide-hero__content {
-  background: #fff;
-  padding: 60px;
-  max-width: 600px;
-  text-align: left; /* left align text */
-  margin-left: 5%; /* push away from left edge */
-}
-
-.gift-guide-hero__title {
-  font-size: 48px; /* Figma size */
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.gift-guide-hero__subtitle {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #000;
-}
-
-.gift-guide-hero__btn {
-  display: inline-flex;
-  align-items: center;
-  background: #000;
-  color: #fff;
-  padding: 14px 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  transition: background 0.3s;
-}
-
-.gift-guide-hero__btn:hover {
-  background: #333;
-}
-
-/* Add arrow icon after button text */
-.gift-guide-hero__btn::after {
-  content: "→";
-  margin-left: 10px;
-  font-size: 16px;
-}
-
-</style>
+</body>
+</html>
