@@ -117,10 +117,22 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "gift_guide_R7mhmd": {
+      "type": "gift_guide",
+      "name": "Gift Guide Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/Group_1000008197.jpg",
+        "heading": "The Gift Guide",
+        "subheading": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/all"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "gift_guide_R7mhmd"
   ]
 }
