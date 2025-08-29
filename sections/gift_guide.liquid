@@ -12,13 +12,10 @@
     }
 
     .hero {
-      position: relative;
-      width: 90%;
-      max-width: 1440px;
-      height: 780px;
-      margin: 0 auto;
-      background: url("{{ 'bgimg.jpg' | asset_url }}") no-repeat center center / cover;
-      background-size: contain;
+      width:100%;
+  max-width:none;              /* full bleed like the mock */
+  min-height:720px;            /* avoid tiny screens cutting it off */
+  background: url("{{ 'bgimg.jpg' | asset_url }}") center / cover no-repeat;
     }
 
     .hero-content {
