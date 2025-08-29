@@ -45,7 +45,8 @@
     text-align: center;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* true horizontal center */
+    top: 50%;
+    transform: translate(-50%, -50%); /* truly centered vertically + horizontally */
     white-space: nowrap;
   }
 
@@ -57,15 +58,16 @@
     background: #FFF544;
     width: 207px;
     height: 44px;
-    border: 1.5px solid #000;
+    border: none; /* 🚀 removed black border */
     border-radius: 4px;
     font-family: 'Jost', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .announcement-bar__content .btn .arrow {
