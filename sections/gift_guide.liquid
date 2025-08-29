@@ -11,28 +11,30 @@
       background: #fff;
     }
 
-    .hero {
+    /* Scoped only to this section to avoid Shopify overrides */
+    #gift-hero {
       position: relative;
       width: 100%;
       max-width: 1440px;
       margin: 0 auto;
       min-height: 700px;
-      background: url("{{ 'bgimg.jpg' | asset_url }}") no-repeat center center / cover;
-      display: flex;
-      align-items: center;
+      background: url("{{ 'bgimg.jpg' | asset_url }}") no-repeat center center / cover !important;
+      display: flex !important;
+      align-items: center !important;
       justify-content: flex-start;
       padding: 0 60px;
+      box-sizing: border-box;
     }
 
     /* White box only wraps the content */
-    .hero-content {
+    #gift-hero .hero-content {
       background: #fff;
       padding: 40px 50px;
       max-width: 480px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    .hero h1 {
+    #gift-hero h1 {
       font-size: 56px;
       font-weight: 600;
       margin: 0;
@@ -40,7 +42,7 @@
       color: #000;
     }
 
-    .hero p {
+    #gift-hero p {
       font-size: 18px;
       font-weight: 400;
       line-height: 1.5;
@@ -48,35 +50,35 @@
       color: #000;
     }
 
-    .btn {
+    #gift-hero .btn {
       display: inline-flex;   
       align-items: center;    
       gap: 10px;              
       margin-top: 30px;
       background: #000;
-      color: #fff;
+      color: #fff !important;
       font-size: 16px;
       font-weight: 500;
       text-transform: uppercase;
       padding: 14px 36px;
-      text-decoration: none;
+      text-decoration: none !important;
       transition: background 0.3s ease;
     }
 
-    .btn:hover {
+    #gift-hero .btn:hover {
       background: #333;
     }
 
-    .btn .arrow {
+    #gift-hero .btn .arrow {
       font-size: 18px; 
       transition: transform 0.3s ease;
     }
 
-    .btn:hover .arrow {
+    #gift-hero .btn:hover .arrow {
       transform: translateX(5px); 
     }
 
-    .info-bar {
+    #gift-info-bar {
       max-width: 1440px;   
       margin: 0 auto;      
       background-color: #F5F5F5;
@@ -84,7 +86,7 @@
       text-align: center;
     }
 
-    .info-bar p {
+    #gift-info-bar p {
       margin: 0;
       font-size: 16px;
       font-weight: 400;
@@ -94,32 +96,32 @@
 
     /* Responsive Mobile */
     @media (max-width: 768px) {
-      .hero {
+      #gift-hero {
         min-height: auto;
         flex-direction: column;
         align-items: center;
         padding: 40px 20px;
         background-position: top;
+        text-align: center;
       }
 
-      .hero-content {
-        background: transparent; /* remove white box on mobile */
+      #gift-hero .hero-content {
+        background: transparent;
         padding: 0;
-        text-align: center;
         box-shadow: none;
         max-width: 100%;
       }
 
-      .hero h1 {
+      #gift-hero h1 {
         font-size: 28px;
       }
 
-      .hero p {
+      #gift-hero p {
         font-size: 15px;
         margin-top: 12px;
       }
 
-      .btn {
+      #gift-hero .btn {
         margin-top: 20px;
       }
     }
@@ -127,7 +129,7 @@
 </head>
 <body>
 
-  <section class="hero">
+  <section id="gift-hero">
     <div class="hero-content">
       <h1>The Gift Guide</h1>
       <p>
@@ -140,7 +142,7 @@
     </div>
   </section>
        
-   <section class="info-bar">
+   <section id="gift-info-bar">
       <p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>
    </section>
 
