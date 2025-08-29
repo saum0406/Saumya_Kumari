@@ -40,20 +40,21 @@
 }
 {% endschema %}
 
-<section class="gift-guide-hero">
-  <div class="gift-guide-hero__bg">
-    {% if section.settings.background_image %}
-      <img src="{{ section.settings.background_image | img_url: 'master' }}" alt="Gift Guide Background" />
-    {% endif %}
-  </div>
-  <div class="gift-guide-hero__content container">
-    <h2 class="gift-guide-hero__title">{{ section.settings.heading }}</h2>
-    <p class="gift-guide-hero__subtitle">{{ section.settings.subheading }}</p>
-    {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="gift-guide-hero__btn">
-        {{ section.settings.button_text }}
-      </a>
-    {% endif %}
+<section class="gift-guide-hero" 
+  {% if section.settings.background_image %} 
+    style="background-image: url('{{ section.settings.background_image | img_url: 'master' }}');" 
+  {% endif %}>
+  
+  <div class="gift-guide-hero__overlay">
+    <div class="gift-guide-hero__content container">
+      <h2 class="gift-guide-hero__title">{{ section.settings.heading }}</h2>
+      <p class="gift-guide-hero__subtitle">{{ section.settings.subheading }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link }}" class="gift-guide-hero__btn">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
   </div>
 </section>
 
@@ -61,42 +62,48 @@
 .gift-guide-hero {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #000; /* adjust depending on background */
+  min-height: 500px; /* adjust height to match Figma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gift-guide-hero__bg img {
+.gift-guide-hero__overlay {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
 .gift-guide-hero__content {
-  position: relative;
-  text-align: center;
   max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: #fff;
 }
 
 .gift-guide-hero__title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .gift-guide-hero__subtitle {
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 25px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .gift-guide-hero__btn {
   display: inline-block;
   background: black;
   color: white;
-  padding: 12px 25px;
-  border-radius: 2px;
+  padding: 14px 28px;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s;
