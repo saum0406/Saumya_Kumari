@@ -19,14 +19,12 @@
     justify-content: center;
     padding: 10px 50px;
     margin: 0 auto;
+    position: relative;
   }
 
   .announcement-bar__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
+    position: relative;
   }
 
   .announcement-bar__content .brand {
@@ -35,18 +33,23 @@
     font-size: 18px;
     text-transform: uppercase;
     color: #000;
-    flex: 0 0 auto; /* fixed, no stretching */
+    position: absolute;
+    left: 50px;   /* aligns with Figma padding */
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .announcement-bar__content .tagline {
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 20px;
     color: #000;
     text-align: center;
-    flex: 1;               /* take up center space */
-    white-space: nowrap;   /* keep tagline in one line */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* true center */
+    white-space: nowrap;
   }
 
   .announcement-bar__content .btn {
@@ -65,8 +68,11 @@
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
-    flex: 0 0 auto; /* fixed width, won’t shrink */
-    white-space: nowrap;   /* prevents wrapping */
+    position: absolute;
+    right: 50px;  /* aligns with Figma padding */
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
   }
 
   .announcement-bar__content .btn .arrow {
