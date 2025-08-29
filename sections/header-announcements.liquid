@@ -1,12 +1,9 @@
-<aside 
-  class="announcement-bar"
->
+<aside class="announcement-bar">
   <div class="announcement-bar__content">
     <span class="brand">TISSO VISON</span>
     <span class="tagline">Find the ideal gift for your loved ones.</span>
     <a href="/collections/gifts" class="btn">
-      CHOOSE GIFT
-      <span class="arrow">→</span>
+      CHOOSE GIFT <span class="arrow">→</span>
     </a>
   </div>
 </aside>
@@ -30,15 +27,15 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 360px; /* space between brand, tagline, button */
   }
 
   .announcement-bar__content .brand {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #000;
     text-transform: uppercase;
+    color: #000;
+    flex: 0 0 auto; /* fixed, no stretching */
   }
 
   .announcement-bar__content .tagline {
@@ -48,17 +45,19 @@
     line-height: 20px;
     color: #000;
     text-align: center;
-    flex: 0 0 260px; /* fixed width like Figma */
+    flex: 1;               /* take up center space */
+    white-space: nowrap;   /* keep tagline in one line */
   }
 
   .announcement-bar__content .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     background: #FFF544;
     width: 207px;
     height: 44px;
+    border: 1.5px solid #000;
     border-radius: 4px;
     font-family: 'Jost', sans-serif;
     font-weight: 400;
@@ -66,7 +65,8 @@
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
-    border: 1.5px solid #000;
+    flex: 0 0 auto; /* fixed width, won’t shrink */
+    white-space: nowrap;   /* prevents wrapping */
   }
 
   .announcement-bar__content .btn .arrow {
