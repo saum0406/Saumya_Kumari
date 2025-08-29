@@ -1,107 +1,131 @@
+
 {% schema %}
 {
   "name": "Gift Guide Hero",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
-    },
-    {
       "type": "text",
-      "id": "title",
+      "id": "heading",
       "label": "Heading",
       "default": "The Gift Guide"
     },
     {
       "type": "textarea",
-      "id": "text",
-      "label": "Description",
+      "id": "subtext",
+      "label": "Subtext",
       "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
+      "label": "Button link"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button Text",
-      "default": "Shop Now"
+      "label": "Button text",
+      "default": "SHOP NOW"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "vector",
+      "name": "Vector Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "vector_image",
+          "label": "Upload vector (SVG/PNG)"
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Top position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Left position (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Width (px)",
+          "min": 20,
+          "max": 400,
+          "step": 5,
+          "default": 100
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Gift Guide Hero"
+      "name": "Gift Guide Hero",
+      "category": "Custom"
     }
   ]
 }
 {% endschema %}
 
-<section class="gift-guide-hero">
-  <div class="gift-guide-hero__background">
-    {% if section.settings.background_image %}
-      <img src="{{ section.settings.background_image | image_url: width: 1600 }}" alt="{{ section.settings.title }}" loading="lazy">
+<div class="gift-guide-hero">
+  <div class="gift-guide-content">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subtext }}</p>
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="gift-guide-btn">{{ section.settings.button_text }}</a>
     {% endif %}
   </div>
 
-  <div class="gift-guide-hero__content container">
-    <h2 class="gift-guide-hero__title">{{ section.settings.title }}</h2>
-    <p class="gift-guide-hero__text">{{ section.settings.text }}</p>
+  {% for block in section.blocks %}
+    <div class="gift-guide-vector" 
+         style="top:{{ block.settings.top }}%; 
+                left:{{ block.settings.left }}%; 
+                width:{{ block.settings.size }}px;">
+      {% if block.settings.vector_image %}
+        <img src="{{ block.settings.vector_image | img_url: '400x' }}" alt="vector">
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
 
-    {% if section.settings.button_link != blank %}
-      <a href="{{ section.settings.button_link }}" class="gift-guide-hero__btn">
-        {{ section.settings.button_text }}
-      </a>
-    {% endif %}
-  </div>
-</section>
-
-{% stylesheet %}
+<style>
 .gift-guide-hero {
   position: relative;
-  text-align: center;
-  padding: 60px 20px;
+  width: 100%;
+  min-height: 600px;
   background: #fff;
+  padding: 60px 20px;
+  overflow: hidden;
 }
-
-.gift-guide-hero__background img {
+.gift-guide-content {
+  max-width: 500px;
+  position: relative;
+  z-index: 5;
+}
+.gift-guide-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+}
+.gift-guide-vector {
+  position: absolute;
+  z-index: 1;
+}
+.gift-guide-vector img {
   width: 100%;
   height: auto;
   display: block;
 }
-
-.gift-guide-hero__content {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: -120px; /* pulls text up over the background */
-  background: rgba(255,255,255,0.9);
-  padding: 40px 20px;
-  border-radius: 8px;
-}
-
-.gift-guide-hero__title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.gift-guide-hero__text {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 25px;
-}
-
-.gift-guide-hero__btn {
-  background: #000;
-  color: #fff;
-  padding: 12px 24px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 4px;
-  display: inline-block;
-}
-{% endstylesheet %}
+</style>
