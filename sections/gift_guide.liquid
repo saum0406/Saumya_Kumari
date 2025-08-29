@@ -170,7 +170,14 @@
 
     <!-- Mobile image + CTA -->
     <div class="hero-bg-wrapper">
-      <img class="hero-bg-mobile" src="bgimg.jpg" alt="The Gift Guide background">
+      <img 
+  class="hero-bg-mobile" 
+  src="{{ 'bgimg.jpg' | asset_url }}" 
+  alt="The Gift Guide background" 
+  width="1440" 
+  height="900" 
+  loading="lazy"
+/>
       <a href="#" class="btn mobile-cta">SHOP NOW <span class="arrow">→</span></a>
     </div>
   </section>
