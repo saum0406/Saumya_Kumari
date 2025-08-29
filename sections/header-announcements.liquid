@@ -13,29 +13,11 @@
   class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
   style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
 >
-  {% liquid
-    assign autoplay = false
-    assign show_arrows = false
-    if section.blocks.size > 1
-      assign autoplay = true
-      assign show_arrows = true
-    endif
-  %}
-
-  <announcement-bar-component
-    class="announcement-bar__slider"
-    {% if autoplay == true %}
-      autoplay="{{ section.settings.speed }}" aria-live="polite"
-    {% endif %}
-  >
-    {% if show_arrows %}
-      {% render 'slideshow-arrows', icon_style: 'chevron' %}
-    {% endif %}
-
-    <div class="announcement-bar__slides">
-      {% content_for 'blocks' %}
-    </div>
-  </announcement-bar-component>
+  <div class="announcement-bar__content">
+    <span class="brand">TISSO VISON</span>
+    <span class="tagline">Find the ideal gift for your loved ones.</span>
+    <a href="/collections/gifts" class="btn">CHOOSE GIFT →</a>
+  </div>
 </aside>
 
 {% stylesheet %}
@@ -119,6 +101,37 @@
   .announcement-bar__link {
     position: absolute;
     inset: 0;
+  }
+
+  .announcement-bar__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  .announcement-bar__content .brand {
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  .announcement-bar__content .tagline {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .announcement-bar__content .btn {
+    background: #fbc02d;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
   }
 {% endstylesheet %}
 
