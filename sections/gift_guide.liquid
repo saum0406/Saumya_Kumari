@@ -76,15 +76,10 @@
     }
 
     .info-bar {
-  width: 100%;
+  max-width: 1440px;   /* same as hero */
+  margin: 0 auto;      /* center it */
   background-color: #F5F5F5;
-  padding: 10px 0; /* only vertical padding */
-}
-
-.info-bar .container {
-  max-width: 1440px;   /* match your hero max-width */
-  margin: 0 auto;      /* center horizontally */
-  padding: 0 50px;     /* left/right padding inside */
+  padding: 8px 12px;   /* minimal horizontal + vertical padding */
   text-align: center;
 }
 
@@ -96,7 +91,6 @@
   line-height: 1.4;
   color: #000;
 }
-
 
   </style>
 </head>
@@ -116,10 +110,9 @@
   </section>
        
    <section class="info-bar">
-  <div class="container">
-    <p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>
-  </div>
+  <p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>
 </section>
+
 
 
 </body>
